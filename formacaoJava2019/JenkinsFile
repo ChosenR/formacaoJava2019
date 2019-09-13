@@ -2,12 +2,10 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+       stage('Build') {
             steps {
                 echo 'Building..'
-                echo "PATH = ${PATH}"
-                echo "M2_HOME = ${M2_HOME}"
-                sh 'mvn install -f pom.xml'
+                bat 'mvn install -f formacaoJava2019/pom.xml'
             }
         }
         stage('Test') {
