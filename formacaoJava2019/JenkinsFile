@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-       stage('Build') {
+        stage('Build') {
             steps {
                 echo 'Building..'
                 bat 'mvn install -f formacaoJava2019/pom.xml'
@@ -16,6 +16,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
+                bat "xcopy \"formacaoJava2019\\target\\formacaoJava2019-0.0.1-SNAPSHOT.war\" \"C:\\Program Files\\Apache Software Foundation\\Tomcat 9.0\\webapps\" /y"
             }
         }
     }
